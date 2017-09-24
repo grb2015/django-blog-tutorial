@@ -129,3 +129,22 @@ demo 分支是演示项目的分支代码。
 - Django 学习交流论坛：[Pythonzhcn - Python 中文社区](http://www.pythonzh.cn/)
 - Django 学习小组邮件列表：django_study@groups.163.com
 - [Django 入门学习规划与资料推荐](http://zmrenwu.com/post/15/)
+
+
+### renbin.guo added 2017/09/24 
+
+遇到的问题： 
+
+1.我这边没有域名，只有IP ,所以
+
+/etc/nginx/sites-available/emo.zmrenwu.com
+要进行修改:
+    #server_name demo.zmrenwu.com;    
+    server_name localhost;
+2. 遇到了访123.207.55.189总是出现的为nginx首页的页面。
+
+解决方法:
+    因为我们设置了自己的配置文件，
+    /etc/nginx/sites-available/emo.zmrenwu.com
+    重启ubuntu即可，下次就好了。
+
