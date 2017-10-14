@@ -147,4 +147,8 @@ demo 分支是演示项目的分支代码。
     因为我们设置了自己的配置文件，
     /etc/nginx/sites-available/emo.zmrenwu.com
     重启ubuntu即可，下次就好了。
+    
+    
+ ##renbin.guo add 2017/10/14
+  day8 要注意，创建的base.html 不是和detail.html一个目录，而是在上一级目录
 
