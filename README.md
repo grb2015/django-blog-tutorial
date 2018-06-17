@@ -153,7 +153,7 @@ demo 分支是演示项目的分支代码。
   day8 要注意，创建的base.html 不是和detail.html一个目录，而是在上一级目录
 
 ## rbguo added 20180617 在aws上部署
-/etc/nginx/nginx.conf下的配置：
+/etc/nginx/nginx.conf下的配置：(centos上面没有sites-available/ 直接在下面配置)
         include /etc/nginx/default.d/*.conf;
 
         #location / {
