@@ -193,3 +193,6 @@ PrivateTmp=false
 
 另外：不要把源码放在/root下
 不然后面nginx进程无法访问，我是放在/var/www下的
+
+
+自动启动 Gunicorn这个还没做，有时间了加上，现在已经可以自由访问了！
