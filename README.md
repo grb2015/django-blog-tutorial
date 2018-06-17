@@ -196,3 +196,9 @@ PrivateTmp=false
 
 
 自动启动 Gunicorn这个还没做，有时间了加上，现在已经可以自由访问了！
+
+Q5  AWS如何安装nginx等
+https://stackoverflow.com/questions/37082406/how-to-install-nginx-1-9-15-on-amazon-linux-disto
+# View list of packages to install
+amazon-linux-extras list
+sudo amazon-linux-extras install nginx1.12
