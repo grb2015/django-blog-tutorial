@@ -152,3 +152,44 @@ demo 分支是演示项目的分支代码。
  ##renbin.guo add 2017/10/14
   day8 要注意，创建的base.html 不是和detail.html一个目录，而是在上一级目录
 
+## rbguo added 20180617 在aws上部署
+/etc/nginx/nginx.conf下的配置：
+        include /etc/nginx/default.d/*.conf;
+
+        #location / {
+        #}
+        location /static {
+        #alias /root/djongo_blog/django-blog-tutorial/static; 
+        alias /var/www/django-blog-tutorial/static;
+        }
+        location / {
+                proxy_set_header Host $host;
+                #proxy_pass http://unix:/tmp/site.sock;
+                proxy_pass http://unix:/tmp/demo.zmrenwu.com.socket;
+
+        #proxy_pass http://127.0.0.1:8000;
+        }
+
+vim /lib/systemd/system/nginx.service
+
+然后完了如果出错，
+"
+nginx error!
+The page you are looking for is temporarily unavailable. Please try again later.
+
+Website Administrator
+Something has triggered an error on your website. This is the default error page for nginx that is distributed with Amazon Linux 2. It is located /usr/share/nginx/html/50x.html
+
+You should customize this error page for your own site or edit the error_page directive in the nginx configuration file /etc/nginx/nginx.conf.
+
+[ Powered by nginx ]  [ Powered by Amazon Linux 2 ]
+"
+这样的话就需要修改：
+可以通过tail -f /var/log/nginx/error.log查看log
+会发现是报socket无法找到：
+需要如下修改
+vim /lib/systemd/system/nginx.service
+PrivateTmp=false
+
+另外：不要把源码放在/root下
+不然后面nginx进程无法访问，我是放在/var/www下的
