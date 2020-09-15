@@ -133,15 +133,15 @@ demo 分支是演示项目的分支代码。
 
 ### renbin.guo added 2017/09/24 
 
-遇到的问题：   
+#### 遇到的问题：  
 
-1. 我这边没有域名，只有IP ,所以  
+##### 1. 我这边没有域名，只有IP ,所以  
 
 /etc/nginx/sites-available/emo.zmrenwu.com  
 要进行修改:  
     #server_name demo.zmrenwu.com;    
     server_name localhost;  
-2. 遇到了访123.207.55.189总是出现的为nginx首页的页面。  
+##### 2. 遇到了访123.207.55.189总是出现的为nginx首页的页面。  
 
 解决方法:  
     因为我们设置了自己的配置文件，  
@@ -173,14 +173,14 @@ demo 分支是演示项目的分支代码。
 vim /lib/systemd/system/nginx.service  
 
 然后完了如果出错，  
-"  
-nginx error!  
-The page you are looking for is temporarily unavailable. Please try again later.  
 
-Website Administrator  
-Something has triggered an error on your website. This is the default error page for nginx that is distributed with Amazon Linux 2. It is located /usr/share/nginx/html/50x.html
+      nginx error!  
+      The page you are looking for is temporarily unavailable. Please try again later.  
 
-You should customize this error page for your own site or edit the error_page directive in the nginx configuration file /etc/nginx/nginx.conf.  
+      Website Administrator  
+      Something has triggered an error on your website. This is the default error page for nginx that is distributed with Amazon Linux 2. It is located /usr/share/nginx/html/50x.html
+
+      You should customize this error page for your own site or edit the error_page directive in the nginx configuration file /etc/nginx/nginx.conf.  
 
 [ Powered by nginx ]  [ Powered by Amazon Linux 2 ]  
 "
