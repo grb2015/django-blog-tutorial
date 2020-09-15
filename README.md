@@ -133,72 +133,72 @@ demo 分支是演示项目的分支代码。
 
 ### renbin.guo added 2017/09/24 
 
-遇到的问题： 
+遇到的问题：   
 
-1.我这边没有域名，只有IP ,所以
+1. 我这边没有域名，只有IP ,所以  
 
-/etc/nginx/sites-available/emo.zmrenwu.com
-要进行修改:
+/etc/nginx/sites-available/emo.zmrenwu.com  
+要进行修改:  
     #server_name demo.zmrenwu.com;    
-    server_name localhost;
-2. 遇到了访123.207.55.189总是出现的为nginx首页的页面。
+    server_name localhost;  
+2. 遇到了访123.207.55.189总是出现的为nginx首页的页面。  
 
-解决方法:
-    因为我们设置了自己的配置文件，
-    /etc/nginx/sites-available/emo.zmrenwu.com
-    重启ubuntu即可，下次就好了。
+解决方法:  
+    因为我们设置了自己的配置文件，  
+    /etc/nginx/sites-available/emo.zmrenwu.com  
+    重启ubuntu即可，下次就好了。  
     
     
- ##renbin.guo add 2017/10/14
-  day8 要注意，创建的base.html 不是和detail.html一个目录，而是在上一级目录
+ ##renbin.guo add 2017/10/14  
+  day8 要注意，创建的base.html 不是和detail.html一个目录，而是在上一级目录  
 
-## rbguo added 20180617 在aws上部署
-/etc/nginx/nginx.conf下的配置：(centos上面没有sites-available/ sites-enabled 直接在/etc/nginx/nginx.conf下面配置)
-        include /etc/nginx/default.d/*.conf;
+## rbguo added 20180617 在aws上部署  
+/etc/nginx/nginx.conf下的配置：(centos上面没有sites-available/ sites-enabled 直接在/etc/nginx/nginx.conf下面配置)  
+        include /etc/nginx/default.d/*.conf;  
 
-        #location / {
-        #}
-        location /static {
-        #alias /root/djongo_blog/django-blog-tutorial/static; 
-        alias /var/www/django-blog-tutorial/static;
-        }
-        location / {
-                proxy_set_header Host $host;
-                #proxy_pass http://unix:/tmp/site.sock;
-                proxy_pass http://unix:/tmp/demo.zmrenwu.com.socket;
+        #location / {  
+        #}  
+        location /static {  
+        #alias /root/djongo_blog/django-blog-tutorial/static;   
+        alias /var/www/django-blog-tutorial/static;  
+        }  
+        location / {  
+                proxy_set_header Host $host;  
+                #proxy_pass http://unix:/tmp/site.sock;  
+                proxy_pass http://unix:/tmp/demo.zmrenwu.com.socket;  
 
-        #proxy_pass http://127.0.0.1:8000;
-        }
+        #proxy_pass http://127.0.0.1:8000;  
+        }  
 
-vim /lib/systemd/system/nginx.service
+vim /lib/systemd/system/nginx.service  
 
-然后完了如果出错，
-"
-nginx error!
-The page you are looking for is temporarily unavailable. Please try again later.
+然后完了如果出错，  
+"  
+nginx error!  
+The page you are looking for is temporarily unavailable. Please try again later.  
 
-Website Administrator
+Website Administrator  
 Something has triggered an error on your website. This is the default error page for nginx that is distributed with Amazon Linux 2. It is located /usr/share/nginx/html/50x.html
 
-You should customize this error page for your own site or edit the error_page directive in the nginx configuration file /etc/nginx/nginx.conf.
+You should customize this error page for your own site or edit the error_page directive in the nginx configuration file /etc/nginx/nginx.conf.  
 
-[ Powered by nginx ]  [ Powered by Amazon Linux 2 ]
+[ Powered by nginx ]  [ Powered by Amazon Linux 2 ]  
 "
-这样的话就需要修改：
-可以通过tail -f /var/log/nginx/error.log查看log
-会发现是报socket无法找到：
-需要如下修改
-vim /lib/systemd/system/nginx.service
-PrivateTmp=false
+这样的话就需要修改：  
+可以通过tail -f /var/log/nginx/error.log查看log  
+会发现是报socket无法找到：  
+需要如下修改  
+vim /lib/systemd/system/nginx.service  
+PrivateTmp=false  
 
-另外：不要把源码放在/root下
-不然后面nginx进程无法访问，我是放在/var/www下的
+另外：不要把源码放在/root下  
+不然后面nginx进程无法访问，我是放在/var/www下的  
 
 
-自动启动 Gunicorn这个还没做，有时间了加上，现在已经可以自由访问了！
+自动启动 Gunicorn这个还没做，有时间了加上，现在已经可以自由访问了！  
 
-Q5  AWS如何安装nginx等
-https://stackoverflow.com/questions/37082406/how-to-install-nginx-1-9-15-on-amazon-linux-disto
-# View list of packages to install
-amazon-linux-extras list
-sudo amazon-linux-extras install nginx1.12
+Q5  AWS如何安装nginx等  
+https://stackoverflow.com/questions/37082406/how-to-install-nginx-1-9-15-on-amazon-linux-disto  
+# View list of packages to install  
+amazon-linux-extras list  
+sudo amazon-linux-extras install nginx1.12  
